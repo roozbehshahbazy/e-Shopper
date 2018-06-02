@@ -8,12 +8,15 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\User;
 
 class SendVerificationToken extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $token;
+    public $user;
+    
 
     /**
      * Create a new message instance.
@@ -23,6 +26,8 @@ class SendVerificationToken extends Mailable
     public function __construct(VerificationToken $token)
     {
         $this->token = $token;
+        $this->user = User::where('id','=',$token->user_id)->first();
+
     }
 
     /**
@@ -32,7 +37,7 @@ class SendVerificationToken extends Mailable
      */
     public function build()
     {
-        return $this->subject('Please verify your email')
-                    ->view('emails.verifications.verification');
+        return $this->from('orders@etrademe.com')
+                    ->subject('Please verify your email')->markdown('emails.verifications.verification')->with('user',$this->user);
     }
 }
