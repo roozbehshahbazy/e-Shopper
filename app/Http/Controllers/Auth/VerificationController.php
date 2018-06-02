@@ -30,7 +30,7 @@ class VerificationController extends Controller
     	$user = User::byEmail($request->email)->firstOrFail();
 
         if($user->hasVerifiedEmail()) {
-            return redirect('/home')->withInfo('Your email has already been verified');
+            return redirect('home')->withInfo('Your email has already been verified');
         }
 
         event(new UserRequestedVerificationEmail($user));
