@@ -15,6 +15,8 @@
 
  <script src="{{ URL::asset('js/jquery.zoom.min.js') }}" defer="defer"></script>
 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 
 
 

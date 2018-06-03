@@ -81,18 +81,21 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('productdetail/{sku}/{id}',['as' => 'productdetail', 'uses' => 'ProductController@getProductDetail'])->where('sku', '[\w\d\-]+');
 	
 	//Shopping Cart
-	route::post('addtocart/{sku}/{id}',['as' => 'addtocart', 'uses' => 'CartController@AddToCart']);
-	route::get('cart',['as' => 'cart', 'uses'=> 'CartController@getCart' ]);
+	Route::post('addtocart/{sku}/{id}',['as' => 'addtocart', 'uses' => 'CartController@AddToCart']);
+	Route::get('cart',['as' => 'cart', 'uses'=> 'CartController@getCart' ]);
 
 	
-	route::get('removefromcart/{rowId}',['as' => 'removefromcart', 'uses'=> 'CartController@removeFromCart']);
-	route::post('increaseproduct/{rowId}',['as' => 'increaseproduct', 'uses'=> 'CartController@increaseProductQuantity']);
-	route::post('updateoption/{rowId}',['as' => 'updateoption', 'uses'=> 'CartController@updateProductOption']);
-	route::get('editoption/{rowId}',['as' => 'editoption', 'uses'=> 'CartController@editoption']);
+	Route::get('removefromcart/{rowId}',['as' => 'removefromcart', 'uses'=> 'CartController@removeFromCart']);
+	Route::post('increaseproduct/{rowId}',['as' => 'increaseproduct', 'uses'=> 'CartController@increaseProductQuantity']);
+	Route::post('updateoption/{rowId}',['as' => 'updateoption', 'uses'=> 'CartController@updateProductOption']);
+	Route::get('editoption/{rowId}',['as' => 'editoption', 'uses'=> 'CartController@editoption']);
 
 	//Product Search
-
 	Route::get('productsearch',['as' => 'productsearch', 'uses' => 'ProductController@ProductSearch']);
+
+	Route::get('itemsearch',['as' => 'itemsearch', 'uses' => 'ProductController@ItemSearch']);
+
+
 
 
 	Route::get('/{category}/price={start_price}_{end_price}/rate={rate}',['as' => 'getProductByCategoryPriceRating', 'uses' => 'ProductController@getProductByCategoryPriceRating']);

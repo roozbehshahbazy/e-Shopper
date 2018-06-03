@@ -13,9 +13,18 @@
                         <div class="col-sm-4 search_box">
 
                         {!! Form::open(['method' => 'GET', 'route' =>'productsearch']) !!}
-                        {{ Form::text('q', null, ['placeholder'=>'Search for products']) }}
+                        {{ Form::text('q', null, ['placeholder'=>'Search for products','id'=>'searchProducts']) }}
                         {{ Form::button('',['class' => 'search_btn','type'=>'submit' ]) }}
                         {!! Form::close() !!}
+
+                        <script>
+                            $( function() {
+                                
+                                $( "#searchProducts" ).autocomplete({
+                                  source: 'http://localhost:8000/itemsearch'
+                                });
+                              });
+                        </script>
 
                         </div>
                     

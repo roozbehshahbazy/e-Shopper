@@ -63,6 +63,24 @@ class ProductController extends Controller
 
 	}
 
+	public function ItemSearch(Request $request){
+
+		$q=$request->term;
+		$products= Product::where('name','like', '%'.$q.'%')->get();
+		if(count($products)==0){
+			$searchResult=['No Product Found'];
+		}
+
+		else {
+			foreach ($products as $product) {
+				$searchResult[]=$product->name;
+			}
+		}
+
+		return $searchResult;
+
+	}
+
 
 	public function getProductByCategory($category){
 
