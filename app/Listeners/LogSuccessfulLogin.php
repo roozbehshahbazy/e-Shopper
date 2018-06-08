@@ -30,9 +30,13 @@ class LogSuccessfulLogin
      */
     public function handle(Login $event)
     {
-        $usermonitor = New UserSignMonitor;
-        $usermonitor->user_id = Auth::user()->id;
-        $usermonitor->signin_at = Carbon::now();
-        $usermonitor->save();
+        if(Auth::user()){
+
+            $usermonitor = New UserSignMonitor;
+            $usermonitor->user_id = Auth::user()->id;
+            $usermonitor->signin_at = Carbon::now();
+            $usermonitor->save();
+
+        }
     }
 }

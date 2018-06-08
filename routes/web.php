@@ -12,6 +12,18 @@
 */
 
 
+Route::prefix('eshopper/deanlist')->group(function(){
+
+	Route::get('/login','Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+	Route::post('/login','Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
+	Route::get('/','Admin\Auth\AdminController@index')->name('admin.dashboard');
+	Route::get('/logout','Admin\Auth\AdminLoginController@logout')->name('admin.logout');
+
+});
+
+
+
+
 Route::group(['middleware' => ['web']], function (){
 
 	// Authentication Routes
@@ -40,8 +52,8 @@ Route::group(['middleware' => ['web']], function (){
 
 
 	Route::get('/', ['as' => 'home', 'uses' => 'PagesController@getIndex']); 
-	Route::get('contact','PagesController@getContact');
-	
+	Route::get('contact','PagesController@getContact')->name('contact');
+
 
 // After login 
 
@@ -66,9 +78,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('customer/rateproduct/product-id={product_id}&order-id={order_id}',['as' => 'rateproduct', 'uses' => 'ReviewController@getRatingDetail'])->where('product_id', '[\w\d\-]+')->where('order_id', '[\w\d\-]+');
 	Route::post('customer/rateproduct/rating/{product_id}',['as' => 'rating', 'uses' => 'ReviewController@productRating']);
 	Route::post('customer/rateproduct/ratingupdate/{product_id}',['as' => 'ratingupdate', 'uses' => 'ReviewController@productRatingUpdate']);
-
 	Route::get('customer/review',['as' => 'review', 'uses' => 'ReviewController@getReview']);
-	
+
+
 });
 
 
@@ -107,8 +119,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/{category}',['as' => 'getProductByCategory', 'uses' => 'ProductController@getProductByCategory']);
 
 	
-
-
 });
-
 

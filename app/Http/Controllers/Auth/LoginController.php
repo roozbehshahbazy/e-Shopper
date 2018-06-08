@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 use Illuminate\Http\Request;
 use Auth;
 
@@ -51,6 +50,22 @@ class LoginController extends Controller
                 ->withError('Please activate your account. <a href="' . route('auth.verify.resend') . '?email=' . $user->email .'">Resend?</a>');
         }
     }
+
+    
+    protected function guard()
+    {
+        return Auth::guard('web');
+    }
+
+    public function logout(Request $request)
+    {
+
+       $sessionKey = $this->guard()->getName();
+       $this->guard()->logout();
+       $request->session()->forget($sessionKey);
+       return redirect()->route('home');
+    }  
+
 
 
 }
