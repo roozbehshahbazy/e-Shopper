@@ -16,7 +16,10 @@ Route::prefix('eshopper/deanlist')->group(function(){
 
 	Route::get('/login','Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login','Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
-	Route::get('/','Admin\Auth\AdminController@index')->name('admin.dashboard');
+	Route::get('/dashboard','Admin\AdminDashboardController@index')->name('admin.dashboard');
+	Route::get('/customers','Admin\AdminCustomersController@index')->name('admin.customer');
+	Route::get('/orders','Admin\AdminOrdersController@index')->name('admin.order');
+	Route::get('/products','Admin\AdminProductsController@index')->name('admin.product');
 	Route::get('/logout','Admin\Auth\AdminLoginController@logout')->name('admin.logout');
 
 });

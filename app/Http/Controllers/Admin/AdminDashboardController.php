@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminDashboardController extends Controller
 {
     
     public function __construct()
@@ -15,6 +15,6 @@ class AdminController extends Controller
 
 
     public function index(){
-    	return view('admin/admin-dashboard');
+    	return view('admin/dashboard/admin-dashboard');
     }
 }
