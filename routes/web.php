@@ -20,6 +20,7 @@ Route::prefix('eshopper/deanlist')->group(function(){
 	Route::get('/customers','Admin\AdminController@showCustomers')->name('admin.customer');
 	Route::get('/orders','Admin\AdminController@showOrders')->name('admin.order');
 	Route::get('/products','Admin\AdminController@showProducts')->name('admin.product');
+	Route::get('/permissions','Admin\AdminController@showPermissions')->name('admin.permission');
 	Route::get('/logout','Admin\Auth\AdminLoginController@logout')->name('admin.logout');
 
 });

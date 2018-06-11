@@ -14,6 +14,8 @@ class AdminController extends Controller
 
 
     public function showCustomers(){
+
+       
     	return view('admin/customers/admin-customers');
     }
 
@@ -30,6 +32,12 @@ class AdminController extends Controller
 
     public function showProducts(){
     	return view('admin/products/admin-products');
+    }
+
+    public function showPermissions(Request $request){
+
+        $request->user()->authorizeRoles('admin');
+        return view('admin/permissions/admin-permissions');
     }
 }
 
