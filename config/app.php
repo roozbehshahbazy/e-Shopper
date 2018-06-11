@@ -162,6 +162,7 @@ return [
 	    Collective\Html\HtmlServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         App\Providers\EloquentEventServiceProvider::class,
+        Nayjest\Grids\ServiceProvider::class,
 
     ],
 
@@ -214,6 +215,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Grids'=> Nayjest\Grids\Grids::class,
 
     ],
 
