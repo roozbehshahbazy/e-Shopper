@@ -22,6 +22,10 @@ Route::prefix('eshopper/deanlist')->group(function(){
 	Route::get('/products','Admin\AdminController@showProducts')->name('admin.product');
 	Route::get('/permissions','Admin\AdminController@showPermissions')->name('admin.permission');
 	Route::get('/logout','Admin\Auth\AdminLoginController@logout')->name('admin.logout');
+	Route::get('/create/user','Admin\AdminController@showUserForm')->name('admin.createuser');
+	Route::get('/user/{id}','Admin\AdminController@showUserDetail')->name('admin.userdetail');
+
+
 
 });
 

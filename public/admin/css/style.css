@@ -178,3 +178,57 @@ body {
   padding: 1rem;
 
 }
+
+#users-grid a{
+
+color: #343a40!important;
+
+}
+
+#users-grid .text-success{
+
+  color: #FE980F !important;
+}
+
+
+#users-grid{
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 15px;
+}
+
+.user-grid-btn {
+  background-color: #FE980F;
+  border-color: #FE980F;
+  color: #fff;
+}
+
+
+.my-class {
+    cursor: pointer;
+}
+
+.btn-create-user{
+  float: right; 
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+}
+
+
+.btn-create-user:focus {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.form-in-line{
+  display: inline-block !important;
+  margin-left: 15px;
+}
+
+
+.form-label{
+  display: inline-block; 
+  width: 170px; 
+  text-align: right;
+  margin-top: 20px;
+}

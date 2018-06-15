@@ -216,6 +216,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Grids'=> Nayjest\Grids\Grids::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
 
